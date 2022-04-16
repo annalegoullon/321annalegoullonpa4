@@ -16,9 +16,9 @@ namespace pa4_annalegoullon.api.Database{
             string fav = "y";
             con.Open();
 
-            using var cmd = new MySqlCommand(@"UPDATE songs set id = @id,timeadded = @timeadded, deleted = @deleted, favorited = @favorited WHERE title=@title");
+            using var cmd = new MySqlCommand(@"UPDATE songs set timeadded = @timeadded, deleted = @deleted, favorited = @favorited WHERE title=@title");
             cmd.Connection = con;
-            cmd.Parameters.AddWithValue("@id",s.SongID);
+            //cmd.Parameters.AddWithValue("@id",s.SongID);
             cmd.Parameters.AddWithValue("@title",s.SongTitle);
             cmd.Parameters.AddWithValue("@timeadded",s.SongTimestamp);
             cmd.Parameters.AddWithValue("@deleted",s.Deleted);
